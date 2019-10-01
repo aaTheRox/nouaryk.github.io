@@ -96,7 +96,7 @@
 		function replaceToUpperCase(str) {
 			let replaced = [];
 			for (let i=0; i < str.length; i++){
-        i % 2 == 0 ? replaced.push(str[i]) : replaced.push(str[i].toUpperCase());
+        i % 2 == 0  ? replaced.push(str[i].toLowerCase()) : replaced.push(str[i].toUpperCase());
       }
       return replaced.join('');
 		}
