@@ -1,1 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 
+</head>
+<body>
+	<style>
+		@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js";
+		@import "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css";
+
+		#result {
+			margin-top: 10px;
+		}
+		#result {
+			padding: 5px;
+			background-color: #fbfbfb;
+			font-size: 18px;
+		}
+
+		.clipboard {
+			width: 25px;
+			height: 25px;
+			cursor: pointer;
+		}
+		.dark-textarea {
+			background-color: #3e3e3e;
+			color: #fff;
+		}
+
+		.clipboard-disabled {
+			background-color: #fbfbfb;
+	    border: none;
+	    margin: 10px 0;
+	    width: 100%;
+		}
+		.clipboard-disabled::selection {
+			background: none;
+		}
+
+		.clipboard-disabled:focus {
+			outline: none;
+		}
+
+		.dark-textarea::-webkit-input-placeholder {
+ 	 		color: #fff;
+		}
+
+		.dark-textarea:-moz-placeholder { /* Firefox 18- */
+		  color: #fff;  
+		}
+
+		.dark-textarea::-moz-placeholder {  /* Firefox 19+ */
+		  color: #fff;  
+		}
+
+		.dark-textarea:-ms-input-placeholder {
+		  color: #fff;  
+		}
+
+		.dark-textarea::placeholder {
+		  color: #fff;  
+		}
+	</style>
+
+<section class="hero is-light is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+			<textarea placeholder="Type something..." class="textarea is-medium is-dark dark-textarea"  onkeyup="textTransform(this);" name="text" id="text"></textarea>
+		<div id="result" class="is-hidden">
+    </div>
+  </div>
+</div>
+</section>
+	
+
+	<script>
+		let text = $('#text');
+
+		// handler for input when typing
+		function textTransform(e) {
+			let value = e.value;
+
+			$('#result').removeClass('is-hidden');
+			$('#result').html(`<img onclick="clipboard();" src="https://cdn3.iconfinder.com/data/icons/basic-ui-31/16/07.Basic_UI_copy-paste-clipboard-file-512.png"
+			class="clipboard is-pulled-right"> <b>Transformed Text</b> <input id="input-clipboard" readonly class="clipboard-disabled" value="${replaceToUpperCase(value)}" />`);
+
+		 value.length < 1 ? $('#result').addClass('is-hidden') : 0 ;
+		}
+
+
+		// Replaces 
+		function replaceToUpperCase(str) {
+			let replaced = [];
+			for (let i=0; i < str.length; i++){
+        i % 2 == 0 ? replaced.push(str[i]) : replaced.push(str[i].toUpperCase());
+      }
+      return replaced.join('');
+		}
+
+		function clipboard() {
+		  $('#input-clipboard').select();
+		  document.execCommand("copy");
+		}
+
+	</script>
+</body>
+</html>
