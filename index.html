@@ -68,7 +68,7 @@
 <section class="hero is-light is-fullheight">
   <div class="hero-body">
     <div class="container">
-			<textarea placeholder="Type something bruh..." class="textarea is-medium is-dark dark-textarea"  onkeyup="textTransform(this);" name="text" id="text"></textarea>
+			<textarea placeholder="Type something..." class="textarea is-medium is-dark dark-textarea"  onkeyup="textTransform(this);" name="text" id="text"></textarea>
 		<div id="result" class="is-hidden">
     </div>
   </div>
@@ -77,6 +77,7 @@
 	
 
 	<script>
+		// Variable declaration 'n shit
 		let text = $('#text');
 
 		// handler for input when typing
@@ -91,7 +92,7 @@
 		}
 
 
-		// Replaces 
+		// This mudafucka will replace even characters to upperCase
 		function replaceToUpperCase(str) {
 			let replaced = [];
 			for (let i=0; i < str.length; i++){
@@ -100,6 +101,7 @@
       return replaced.join('');
 		}
 
+		// This shit is for copying the result text to your modafucka clipboard
 		function clipboard() {
 		  $('#input-clipboard').select();
 		  document.execCommand("copy");
