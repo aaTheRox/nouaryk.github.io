@@ -2,13 +2,10 @@
 <html>
 <head>
 	<title></title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 
 </head>
 <body>
 	<style>
-		@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js";
 		@import "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css";
 
 		#result {
@@ -75,38 +72,7 @@
 </div>
 </section>
 	
-
-	<script>
-		// Variable declaration 'n shit
-		let text = $('#text');
-
-		// handler for input when typing
-		function textTransform(e) {
-			let value = e.value;
-
-			$('#result').removeClass('is-hidden');
-			$('#result').html(`<img onclick="clipboard();" src="https://cdn3.iconfinder.com/data/icons/basic-ui-31/16/07.Basic_UI_copy-paste-clipboard-file-512.png"
-			class="clipboard is-pulled-right"> <b>Transformed Text</b> <input id="input-clipboard" readonly class="clipboard-disabled" value="${replaceToUpperCase(value)}" />`);
-
-		 value.length < 1 ? $('#result').addClass('is-hidden') : 0 ;
-		}
-
-
-		// This mudafucka will replace even characters to upperCase
-		function replaceToUpperCase(str) {
-			let replaced = [];
-			for (let i=0; i < str.length; i++){
-        i % 2 == 0  ? replaced.push(str[i].toLowerCase()) : replaced.push(str[i].toUpperCase());
-      }
-      return replaced.join('');
-		}
-
-		// This shit is for copying the result text to your modafucka clipboard
-		function clipboard() {
-		  $('#input-clipboard').select();
-		  document.execCommand("copy");
-		}
-
-	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="app.js"></script>
 </body>
 </html>
