@@ -1,32 +1,33 @@
-// Variable declaration 'n shit
-let text = $('#text');
-
-// handler for input when typing
+// Input handler, whatever...
 function textTransform(e) {
 	let value =  e.value;
 	
-	$('#result').removeClass('is-hidden');
-	$('#result').html('<img onclick="clipboard();" src="https://cdn3.iconfinder.com/data/icons/basic-ui-31/16/07.Basic_UI_copy-paste-clipboard-file-512.png"'
-	+'class="clipboard is-pulled-right"> <b>Transformed Text</b> <input id="input-clipboard" readonly class="clipboard-disabled" />');
-
- value.length < 1 ? $('#result').addClass('is-hidden') : 0 ;
-
- replaceToUpperCase(value);
+	if(value.length < 1) {
+		$('#result').addClass('is-hidden');
+	} else {
+		$('#result').removeClass('is-hidden');
+		$('#result').html('<img onclick="clipboard();" src="https://cdn3.iconfinder.com/data/icons/basic-ui-31/16/07.Basic_UI_copy-paste-clipboard-file-512.png"'
+		+'class="clipboard is-pulled-right"> <b>Transformed Text</b> <input id="input-clipboard" readonly class="clipboard-disabled" />');
+	 	replaceToUpperCase(value);
+	}
 }
 
 
-// This mudafucka will replace even characters to upperCase
+// This mudafucka will replace characters to upperCase and lowercase
 function replaceToUpperCase(str) {
-	let replaced = [], text = "";
+	let replaced = [];
 	for (let i=0; i < str.length; i++){
-    i % 2 == 0  ? replaced.push(str[i].toLowerCase()) : replaced.push(str[i].toUpperCase());
+    if(i % 2 == 0) {
+    	replaced.push(str[i].toLowerCase()); 
+    } else {
+    	replaced.push(str[i].toUpperCase());
+   	} 
   }
   $('#input-clipboard').val(replaced.join(''));
 }
 
-// This shit is for copying the result text to your modafucka clipboard
+// This shit is for copying the result text to your clipboard
 function clipboard() {
   $('#input-clipboard').select();
   document.execCommand("copy");
 }
-
