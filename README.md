@@ -3,5 +3,5 @@ ThIs aWeSoMe hArD-WoRkEd wEbSiTe iS GoNnA RePlAcE ThE TeXt yOu tYpE In tHe iNpUt
 
 
 ## pumpkin
-converts white spaces to pumpkins (used on a discord server)
+Converts white spaces to pumpkins (used on a discord server)
 http://nouaryk.github.io/pumpkin/index.html
